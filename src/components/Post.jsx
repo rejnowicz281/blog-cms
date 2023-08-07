@@ -14,6 +14,7 @@ function Post() {
             const res = await getPost(id);
 
             if (res.status === 200) setPost(res.data);
+            else navigate("/blog-cms/posts");
         }
 
         async function fetchComments() {
