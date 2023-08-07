@@ -28,9 +28,9 @@ function Posts() {
             <h1>Posts</h1>
             {posts.length === 0 && <p>No posts found</p>}
             {posts.map((post) => (
-                <>
-                    <hr /> <PostContents key={post._id} post={post} removePost={() => removePost(post._id)} />
-                </>
+                <div key={post._id}>
+                    <hr /> <PostContents post={post} removePost={() => removePost(post._id)} />
+                </div>
             ))}
         </div>
     );
