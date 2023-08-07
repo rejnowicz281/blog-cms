@@ -62,27 +62,27 @@ export async function deletePost(id) {
     }
 }
 
-export async function getComments(postId) {
+export async function getPostComments(postId) {
     try {
-        const response = await axios.get(`http://localhost:3000/${postId}/comments`);
+        const response = await axios.get(`http://localhost:3000/posts/${postId}/comments`);
         return response;
     } catch (error) {
         return error.response;
     }
 }
 
-export async function createComment(comment) {
+export async function createPostComment(postId, comment) {
     try {
-        const response = await axios.post("http://localhost:3000/comments", comment);
+        const response = await axios.post(`http://localhost:3000/posts/${postId}/comments`, comment);
         return response.data;
     } catch (error) {
         return error.response;
     }
 }
 
-export async function deleteComment(id) {
+export async function deletePostComment(postId, id) {
     try {
-        const response = await axios.delete(`http://localhost:3000/comments/${id}`);
+        const response = await axios.delete(`http://localhost:3000/posts/${postId}/comments/${id}`);
 
         return response;
     } catch (error) {
