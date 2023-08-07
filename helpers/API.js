@@ -4,9 +4,9 @@ export async function getPosts() {
     try {
         const response = await axios.get("http://localhost:3000/posts");
 
-        return response.data;
+        return response;
     } catch (error) {
-        console.error(error.response.data.error.message);
+        return error.response;
     }
 }
 
@@ -14,9 +14,9 @@ export async function getPost(id) {
     try {
         const response = await axios.get(`http://localhost:3000/posts/${id}`);
 
-        return response.data;
+        return response;
     } catch (error) {
-        console.error(error.response.data.error.message);
+        return error.response;
     }
 }
 
@@ -28,9 +28,9 @@ export async function createPost(post) {
                 Authorization: `Bearer ${token}`,
             },
         });
-        return response.data;
+        return response;
     } catch (error) {
-        console.error(error.response.data.error.message);
+        return error.response;
     }
 }
 
@@ -42,9 +42,9 @@ export async function updatePost(post) {
                 Authorization: `Bearer ${token}`,
             },
         });
-        return response.data;
+        return response;
     } catch (error) {
-        console.error(error.response.data.error.message);
+        return error.response;
     }
 }
 
@@ -56,18 +56,18 @@ export async function deletePost(id) {
                 Authorization: `Bearer ${token}`,
             },
         });
-        return response.data;
+        return response;
     } catch (error) {
-        console.error(error.response.data.error.message);
+        return error.response;
     }
 }
 
 export async function getComments(postId) {
     try {
         const response = await axios.get(`http://localhost:3000/${postId}/comments`);
-        return response.data;
+        return response;
     } catch (error) {
-        console.error(error.response.data.error.message);
+        return error.response;
     }
 }
 
@@ -76,7 +76,7 @@ export async function createComment(comment) {
         const response = await axios.post("http://localhost:3000/comments", comment);
         return response.data;
     } catch (error) {
-        console.error(error.response.data.error.message);
+        return error.response;
     }
 }
 
@@ -84,9 +84,9 @@ export async function deleteComment(id) {
     try {
         const response = await axios.delete(`http://localhost:3000/comments/${id}`);
 
-        return response.data;
+        return response;
     } catch (error) {
-        console.error(error.response.data.error.message);
+        return error.response;
     }
 }
 
@@ -94,9 +94,8 @@ export async function login(password) {
     try {
         const response = await axios.post("http://localhost:3000/login", { password });
 
-        const token = response.data.token;
-        localStorage.setItem("token", token);
+        return response;
     } catch (error) {
-        console.error(error.response.data.error.message);
+        return error.response;
     }
 }
