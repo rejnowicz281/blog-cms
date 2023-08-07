@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { deletePost, getPosts } from "../../helpers/API";
+import PostContents from "./PostContents";
 
 function Posts() {
     const [posts, setPosts] = useState(null);
@@ -28,20 +28,9 @@ function Posts() {
             <h1>Posts</h1>
             {posts.length === 0 && <p>No posts found</p>}
             {posts.map((post) => (
-                <div key={post._id}>
-                    <hr />
-                    <h1>{post.title}</h1>
-                    <p>{post.body}</p>
-                    <div>
-                        <Link to={`/blog-cms/posts/${post._id}`}>View Post</Link>
-                    </div>
-                    <div>
-                        <Link to={`/blog-cms/posts/${post._id}/edit`}>Edit Post</Link>
-                    </div>
-                    <div>
-                        <button onClick={() => removePost(post._id)}>Delete Post</button>
-                    </div>
-                </div>
+                <>
+                    <hr /> <PostContents key={post._id} post={post} removePost={() => removePost(post._id)} />
+                </>
             ))}
         </div>
     );
