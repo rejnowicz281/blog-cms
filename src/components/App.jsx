@@ -7,6 +7,7 @@ import Posts from "./Posts";
 
 function App() {
     const [authenticated, setAuthenticated] = useState(false);
+    const [tokenChecked, setTokenChecked] = useState(false);
 
     useEffect(() => {
         const token = localStorage.getItem("token");
@@ -22,26 +23,29 @@ function App() {
                 setAuthenticated(true);
             }
         }
+        setTokenChecked(true);
     }, []);
 
-    return (
-        <HashRouter>
-            <Routes>
-                {authenticated ? (
-                    <>
-                        <Route path="/*" element={<Navigate to="/blog-cms/posts" />} />
-                        <Route path="/blog-cms/posts" element={<Posts />} />
-                        <Route path="/blog-cms/posts/:id" element={<Post />} />
-                    </>
-                ) : (
-                    <>
-                        <Route path="/*" element={<Navigate to="/blog-cms/login" />} />
-                        <Route path="/blog-cms/login" element={<Login setAuthenticated={setAuthenticated} />} />
-                    </>
-                )}
-            </Routes>
-        </HashRouter>
-    );
+    if (tokenChecked) {
+        return (
+            <HashRouter>
+                <Routes>
+                    {authenticated ? (
+                        <>
+                            <Route path="/*" element={<Navigate to="/blog-cms/posts" />} />
+                            <Route path="/blog-cms/posts" element={<Posts />} />
+                            <Route path="/blog-cms/posts/:id" element={<Post />} />
+                        </>
+                    ) : (
+                        <>
+                            <Route path="/*" element={<Navigate to="/blog-cms/login" />} />
+                            <Route path="/blog-cms/login" element={<Login setAuthenticated={setAuthenticated} />} />
+                        </>
+                    )}
+                </Routes>
+            </HashRouter>
+        );
+    }
 }
 
 export default App;
