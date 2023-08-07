@@ -2,6 +2,7 @@ import jwt_decode from "jwt-decode";
 import { useEffect, useState } from "react";
 import { HashRouter, Navigate, Route, Routes } from "react-router-dom";
 import Login from "./Login";
+import MainLayout from "./MainLayout";
 import Post from "./Post";
 import Posts from "./Posts";
 
@@ -31,11 +32,11 @@ function App() {
             <HashRouter>
                 <Routes>
                     {authenticated ? (
-                        <>
+                        <Route element={<MainLayout />}>
                             <Route path="/*" element={<Navigate to="/blog-cms/posts" />} />
                             <Route path="/blog-cms/posts" element={<Posts />} />
                             <Route path="/blog-cms/posts/:id" element={<Post />} />
-                        </>
+                        </Route>
                     ) : (
                         <>
                             <Route path="/*" element={<Navigate to="/blog-cms/login" />} />
