@@ -6,6 +6,7 @@ function PostContents({ post, removePost }) {
         <div key={post._id}>
             <h1>{post.title}</h1>
             <p>{post.body}</p>
+            <p>Status: {post.status}</p>
             <div>
                 <Link to={`/blog-cms/posts/${post._id}`}>View Post</Link>
             </div>
@@ -23,6 +24,7 @@ PostContents.propTypes = {
     post: PropTypes.shape({
         _id: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
+        status: PropTypes.string.isRequired,
         body: PropTypes.string.isRequired,
         createdAt: PropTypes.string.isRequired,
         updatedAt: PropTypes.string.isRequired,
