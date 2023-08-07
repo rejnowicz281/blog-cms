@@ -1,8 +1,10 @@
 import jwt_decode from "jwt-decode";
 import { useEffect, useState } from "react";
-import { HashRouter, Navigate, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import EditPost from "./EditPost";
 import Login from "./Login";
 import MainLayout from "./MainLayout";
+import NewPost from "./NewPost";
 import Post from "./Post";
 import Posts from "./Posts";
 
@@ -29,13 +31,15 @@ function App() {
 
     if (tokenChecked) {
         return (
-            <HashRouter>
+            <BrowserRouter>
                 <Routes>
                     {authenticated ? (
                         <Route element={<MainLayout />}>
                             <Route path="/*" element={<Navigate to="/blog-cms/posts" />} />
                             <Route path="/blog-cms/posts" element={<Posts />} />
                             <Route path="/blog-cms/posts/:id" element={<Post />} />
+                            <Route path="/blog-cms/posts/new" element={<NewPost />} />
+                            <Route path="/blog-cms/posts/:id/edit" element={<EditPost />} />
                         </Route>
                     ) : (
                         <>
@@ -44,7 +48,7 @@ function App() {
                         </>
                     )}
                 </Routes>
-            </HashRouter>
+            </BrowserRouter>
         );
     }
 }
