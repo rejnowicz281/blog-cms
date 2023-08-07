@@ -12,6 +12,11 @@ function App() {
     const [authenticated, setAuthenticated] = useState(false);
     const [tokenChecked, setTokenChecked] = useState(false);
 
+    function logOut() {
+        localStorage.removeItem("token");
+        setAuthenticated(false);
+    }
+
     useEffect(() => {
         const token = localStorage.getItem("token");
 
@@ -20,8 +25,7 @@ function App() {
             const currentTime = Date.now() / 1000;
 
             if (decodedToken.exp < currentTime) {
-                localStorage.removeItem("token");
-                setAuthenticated(false);
+                logOut();
             } else {
                 setAuthenticated(true);
             }
@@ -34,7 +38,7 @@ function App() {
             <BrowserRouter>
                 <Routes>
                     {authenticated ? (
-                        <Route element={<MainLayout />}>
+                        <Route element={<MainLayout logOut={logOut} />}>
                             <Route path="/*" element={<Navigate to="/blog-cms/posts" />} />
                             <Route path="/blog-cms/posts" element={<Posts />} />
                             <Route path="/blog-cms/posts/:id" element={<Post />} />
