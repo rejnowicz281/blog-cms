@@ -37,7 +37,7 @@ export async function createPost(post) {
 export async function updatePost(post) {
     try {
         const token = localStorage.getItem("token");
-        const response = await axios.put(`http://localhost:3000/posts/${post.id}`, post, {
+        const response = await axios.put(`http://localhost:3000/posts/${post._id}`, post, {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
