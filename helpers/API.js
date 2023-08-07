@@ -73,7 +73,12 @@ export async function getPostComments(postId) {
 
 export async function createPostComment(postId, comment) {
     try {
-        const response = await axios.post(`http://localhost:3000/posts/${postId}/comments`, comment);
+        const token = localStorage.getItem("token");
+        const response = await axios.post(`http://localhost:3000/posts/${postId}/comments`, comment, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
         return response.data;
     } catch (error) {
         return error.response;
@@ -82,7 +87,12 @@ export async function createPostComment(postId, comment) {
 
 export async function deletePostComment(postId, id) {
     try {
-        const response = await axios.delete(`http://localhost:3000/posts/${postId}/comments/${id}`);
+        const token = localStorage.getItem("token");
+        const response = await axios.delete(`http://localhost:3000/posts/${postId}/comments/${id}`, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
 
         return response;
     } catch (error) {
