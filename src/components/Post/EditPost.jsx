@@ -37,8 +37,11 @@ function EditPost() {
 
     return (
         <div>
-            <h1>Edit Post</h1>
-            <Link to={`/blog-cms/posts/${post._id}`}>Back to Post</Link>
+            <div className="mb-5">
+                <Link className="font-semibold hover:underline" to={`/blog-cms/posts/${post._id}`}>
+                    Back to Post
+                </Link>
+            </div>
             {errors.length > 0 && <ValidationErrors errors={errors} />}
             <PostForm onSubmit={handleSubmit} submitText="Update Post" post={post} handleChange={handleChange} />
         </div>

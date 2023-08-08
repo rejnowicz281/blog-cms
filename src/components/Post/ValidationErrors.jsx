@@ -4,7 +4,9 @@ function ValidationErrors({ errors }) {
     return (
         <ul>
             {errors.map((error) => (
-                <li key={error.msg}>{error.msg}</li>
+                <li className="text-red-500 mb-2" key={error.msg}>
+                    {error.msg}
+                </li>
             ))}
         </ul>
     );

@@ -10,21 +10,42 @@ function PostForm({ onSubmit, submitText = "Submit", post, handleChange }) {
         <form onSubmit={handleSubmit}>
             <div>
                 <label htmlFor="title">Title</label>
-                <input type="text" id="title" name="title" onChange={handleChange} defaultValue={post?.title} />
+                <input
+                    className="w-full border rounded p-2 text-lg outline-none"
+                    type="text"
+                    id="title"
+                    name="title"
+                    onChange={handleChange}
+                    defaultValue={post?.title}
+                />
             </div>
-            <div>
+            <div className="mb-3 mt-3">
                 <label htmlFor="body">Body</label>
-                <textarea id="body" name="body" onChange={handleChange} defaultValue={post?.body} />
+                <textarea
+                    className="w-full border rounded p-2 text-lg outline-none"
+                    id="body"
+                    name="body"
+                    onChange={handleChange}
+                    defaultValue={post?.body}
+                />
             </div>
-            <div>
+            <div className="mb-3">
                 <label htmlFor="status">Status</label>
-                <select id="status" name="status" onChange={handleChange} defaultValue={post?.status}>
+                <select
+                    className="ms-3 p-2 rounded-lg shadow cursor-pointer bg-green-100"
+                    id="status"
+                    name="status"
+                    onChange={handleChange}
+                    defaultValue={post?.status}
+                >
                     <option value="">Select status</option>
                     <option value="Draft">Draft</option>
                     <option value="Public">Public</option>
                 </select>
             </div>
-            <button type="submit">{submitText}</button>
+            <button className="w-full bg-green-200 p-3 hover:bg-green-300 transition-colors" type="submit">
+                {submitText}
+            </button>
         </form>
     );
 }

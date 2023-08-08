@@ -26,7 +26,6 @@ function NewPost() {
 
     return (
         <div>
-            <h1>New Post</h1>
             {errors.length > 0 && <ValidationErrors errors={errors} />}
             <PostForm onSubmit={handleSubmit} submitText="Create Post" post={post} handleChange={handleChange} />
         </div>
