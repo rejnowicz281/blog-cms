@@ -21,13 +21,23 @@ function Login({ setAuthenticated }) {
     }
 
     return (
-        <div>
-            {error && <p>{error}</p>}
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="password">Password</label>
-                <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-
-                <button type="submit">Login</button>
+        <div className="flex text-lg justify-center h-screen items-center text-stone-600 flex-col">
+            {error && <span className="text-red-600">{error}</span>}
+            <form onSubmit={handleSubmit} className="text-center">
+                <input
+                    className="text-black text-center border w-full p-2 mt-2 mb-2 rounded-sm"
+                    type="password"
+                    id="password"
+                    value={password}
+                    placeholder="Type in password"
+                    onChange={(e) => setPassword(e.target.value)}
+                />
+                <button
+                    className="bg-slate-500 hover:bg-slate-600 transition-colors text-slate-200 w-full rounded-sm p-3"
+                    type="submit"
+                >
+                    Login
+                </button>
             </form>
         </div>
     );
