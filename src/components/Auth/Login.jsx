@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
-import { login } from "../../helpers/API";
+import { login } from "../../../helpers/API";
 
 function Login({ setAuthenticated }) {
     const [error, setError] = useState(null);

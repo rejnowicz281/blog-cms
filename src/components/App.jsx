@@ -1,12 +1,12 @@
 import jwt_decode from "jwt-decode";
 import { useEffect, useState } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import EditPost from "./EditPost";
-import Login from "./Login";
-import MainLayout from "./MainLayout";
-import NewPost from "./NewPost";
-import Post from "./Post";
-import Posts from "./Posts";
+import Login from "./Auth/Login";
+import MainLayout from "./Layout/MainLayout";
+import EditPost from "./Post/EditPost";
+import NewPost from "./Post/NewPost";
+import Post from "./Post/Post";
+import Posts from "./Post/Posts";
 
 function App() {
     const [authenticated, setAuthenticated] = useState(false);

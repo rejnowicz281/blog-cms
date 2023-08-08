@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { deletePost, deletePostComment, getPost, getPostComments } from "../../helpers/API";
+import { deletePost, deletePostComment, getPost, getPostComments } from "../../../helpers/API";
 import PostContents from "./PostContents";
 
 function Post() {

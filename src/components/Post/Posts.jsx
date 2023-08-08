@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { deletePost, getPosts } from "../../helpers/API";
+import { deletePost, getPosts } from "../../../helpers/API";
 import PostContents from "./PostContents";
 
 function Posts() {

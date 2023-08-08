@@ -10,22 +10,15 @@ function PostForm({ onSubmit, submitText = "Submit", post, handleChange }) {
         <form onSubmit={handleSubmit}>
             <div>
                 <label htmlFor="title">Title</label>
-                <input
-                    type="text"
-                    id="title"
-                    name="title"
-                    onChange={handleChange}
-                    defaultValue={post?.title}
-                    required
-                />
+                <input type="text" id="title" name="title" onChange={handleChange} defaultValue={post?.title} />
             </div>
             <div>
                 <label htmlFor="body">Body</label>
-                <textarea id="body" name="body" onChange={handleChange} defaultValue={post?.body} required />
+                <textarea id="body" name="body" onChange={handleChange} defaultValue={post?.body} />
             </div>
             <div>
                 <label htmlFor="status">Status</label>
-                <select id="status" name="status" onChange={handleChange} defaultValue={post?.status} required>
+                <select id="status" name="status" onChange={handleChange} defaultValue={post?.status}>
                     <option value="">Select status</option>
                     <option value="Draft">Draft</option>
                     <option value="Public">Public</option>
