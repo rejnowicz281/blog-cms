@@ -25,11 +25,10 @@ function Posts() {
 
     return (
         <div>
-            <h1>Posts</h1>
             {posts.length === 0 && <p>No posts found</p>}
             {posts.map((post) => (
-                <div key={post._id}>
-                    <hr /> <PostContents post={post} removePost={() => removePost(post._id)} />
+                <div className="border shadow rounded" key={post._id}>
+                    <PostContents post={post} removePost={() => removePost(post._id)} />
                 </div>
             ))}
         </div>

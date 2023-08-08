@@ -42,18 +42,23 @@ function Post() {
     if (!post || !comments) return <p>Loading...</p>;
 
     return (
-        <div>
+        <div className="border rounded">
             <PostContents post={post} removePost={removePost} />
-            <h2>Comments</h2>
-            {comments.length === 0 && <p>No comments found</p>}
-
-            {comments.map((comment) => (
-                <div key={comment._id}>
-                    <p>{comment.body}</p>
-                    <p>{comment.author}</p>
-                    <button onClick={() => removeComment(comment._id)}>Delete Comment</button>
-                </div>
-            ))}
+            <div className="p-5">
+                {comments.length === 0 && <p>No comments found</p>}
+                {comments.map((comment) => (
+                    <div className="bg-stone-100 p-2 mt-10 border shadow-sm break-words" key={comment._id}>
+                        <div className="mb-5 font-light">{comment.body}</div>
+                        <div className="text-sm mb-2 text-neutral-600 font-semibold">{comment.author}</div>
+                        <button
+                            className="text-sm font-medium bg-red-400 hover:bg-red-500 transition-colors text-white p-2"
+                            onClick={() => removeComment(comment._id)}
+                        >
+                            Delete Comment
+                        </button>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }
