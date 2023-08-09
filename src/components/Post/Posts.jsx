@@ -27,7 +27,7 @@ function Posts() {
         <div>
             {posts.length === 0 && <p>No posts found</p>}
             {posts.map((post) => (
-                <div className="border shadow rounded" key={post._id}>
+                <div className="border shadow rounded mb-8" key={post._id}>
                     <PostContents post={post} removePost={() => removePost(post._id)} />
                 </div>
             ))}
