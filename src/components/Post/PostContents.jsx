@@ -12,7 +12,8 @@ function PostContents({ post, removePost }) {
                 {post.status}
             </div>
             <div className="p-5 break-words">
-                <div className="font-medium text-4xl mb-5">{post.title}</div>
+                <div className="font-medium text-4xl">{post.title}</div>
+                <div className="text-sm mb-5">{post.createdAt}</div>
                 <div className="border-b font-light pb-5">{post.body}</div>
                 <div className="mt-2">
                     <Link className="hover:text-neutral-500 transition-colors" to={`/blog-cms/posts/${post._id}`}>

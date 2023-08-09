@@ -49,7 +49,8 @@ function Post() {
                 {comments.map((comment) => (
                     <div className="bg-stone-100 p-2 mt-10 border shadow-sm break-words" key={comment._id}>
                         <div className="mb-5 font-light">{comment.body}</div>
-                        <div className="text-sm mb-2 text-neutral-600 font-semibold">{comment.author}</div>
+                        <div className="text-sm text-neutral-600 font-semibold">{comment.author}</div>
+                        <div className="text-sm mb-2">{comment.createdAt}</div>
                         <button
                             className="text-sm font-medium bg-red-400 hover:bg-red-500 transition-colors text-white p-2"
                             onClick={() => removeComment(comment._id)}
