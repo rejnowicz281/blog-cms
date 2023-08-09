@@ -43,7 +43,6 @@ PostContents.propTypes = {
         status: PropTypes.string.isRequired,
         body: PropTypes.string.isRequired,
         createdAt: PropTypes.string.isRequired,
-        updatedAt: PropTypes.string.isRequired,
     }).isRequired,
     removePost: PropTypes.func.isRequired,
 };
