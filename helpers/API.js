@@ -73,16 +73,6 @@ export async function getPostComments(postId) {
     }
 }
 
-export async function createPostComment(postId, comment) {
-    try {
-        const response = await apiAuthorized.post(`posts/${postId}/comments`, comment);
-
-        return response.data;
-    } catch (error) {
-        return error.response;
-    }
-}
-
 export async function deletePostComment(postId, id) {
     try {
         const response = await apiAuthorized.delete(`posts/${postId}/comments/${id}`);
