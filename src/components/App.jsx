@@ -1,6 +1,6 @@
 import jwt_decode from "jwt-decode";
 import { useEffect, useState } from "react";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { HashRouter, Navigate, Route, Routes } from "react-router-dom";
 import Login from "./Auth/Login";
 import MainLayout from "./Layout/MainLayout";
 import EditPost from "./Post/EditPost";
@@ -35,7 +35,7 @@ function App() {
 
     if (tokenChecked) {
         return (
-            <BrowserRouter>
+            <HashRouter>
                 <Routes>
                     {authenticated ? (
                         <Route element={<MainLayout logOut={logOut} />}>
@@ -52,7 +52,7 @@ function App() {
                         </>
                     )}
                 </Routes>
-            </BrowserRouter>
+            </HashRouter>
         );
     }
 }
